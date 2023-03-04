@@ -12,8 +12,6 @@ Build the extension with webpack:
 npm run build
 ```
 
-If `npm run build` doesn't work and you get `sh: webpack: command not found`, run `npm install webpack`.
-
 ## Loading into Chrome
 1. Go to `chrome://extensions` in Chrome
 2. There’s a “Developer mode” switch. Turn it on.
