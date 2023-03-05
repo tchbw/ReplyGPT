@@ -6,6 +6,7 @@ module.exports = (env, options) => {
   return {
     entry: {
       index: "./src/index.ts",
+      twitter: "./src/twitter.ts",
     },
     output: {
       filename: "[name].js",
@@ -24,8 +25,11 @@ module.exports = (env, options) => {
         },
         {
           test: /\.tsx?$/,
-          use: ["babel-loader", "ts-loader"],
+          loader: "esbuild-loader",
           exclude: path.join(__dirname, "node_modules"),
+          options: {
+            loader: "ts",
+          },
         },
       ],
     },
