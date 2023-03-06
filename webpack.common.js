@@ -1,5 +1,5 @@
 const path = require("path");
-// const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = (env, options) => {
@@ -7,6 +7,7 @@ module.exports = (env, options) => {
     entry: {
       index: "./src/index.ts",
       twitter: "./src/twitter.ts",
+      popup: "./src/popup.tsx",
     },
     output: {
       filename: "[name].js",
@@ -27,13 +28,21 @@ module.exports = (env, options) => {
           test: /\.tsx?$/,
           loader: "esbuild-loader",
           exclude: path.join(__dirname, "node_modules"),
-          options: {
-            loader: "ts",
-          },
         },
       ],
     },
     plugins: [
+      new HtmlWebpackPlugin({
+        chunks: ["popup"],
+        filename: "./popup.html",
+        templateContent: `
+          <html>
+            <body>
+              <div id="root"></div>
+            </body>
+          </html>
+        `,
+      }),
       new CopyWebpackPlugin({
         patterns: [
           {
@@ -50,14 +59,12 @@ module.exports = (env, options) => {
           },
         ],
       }),
-      new CopyWebpackPlugin({
-        patterns: [
-          {
-            from: "src/popup.html",
-            to: path.resolve(__dirname, "dist"),
-          },
-        ],
-      }),
     ],
+    resolve: {
+      alias: {
+        src: path.resolve(__dirname, "src/"), // added this
+      },
+      extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
+    },
   };
 };

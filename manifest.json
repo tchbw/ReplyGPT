@@ -23,7 +23,8 @@
     {
       "js": ["twitter.js"],
       "matches": [
-        "https://twitter.com/*/status/*"
+        "https://twitter.com/*/status/*",
+        "https://twitter.com/*"
       ],
       "run_at": "document_end"
     }
