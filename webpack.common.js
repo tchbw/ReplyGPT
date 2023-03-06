@@ -50,6 +50,14 @@ module.exports = (env, options) => {
           },
         ],
       }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: "src/popup.html",
+            to: path.resolve(__dirname, "dist"),
+          },
+        ],
+      }),
     ],
   };
 };
