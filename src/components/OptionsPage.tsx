@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface OptionsPageProps {}
 
@@ -23,6 +25,8 @@ export default function OptionsPage(props: OptionsPageProps) {
     e.preventDefault(); // Stops the page from refreshing (default action of form submit)
   }
 
+  const toastMessage = () => toast.success("Submitted!");
+
   return (
     <div className="bg-blue-200 flex flex-col min-w-[500px] min-h-[300px] h-screen w-screen justify-center items-center">
       <div className="text-center text-2xl uppercase mb-7 font-bold text-blue-400">
@@ -40,6 +44,19 @@ export default function OptionsPage(props: OptionsPageProps) {
           type="submit"
           value="Submit"
           className="block w-full h-[30px] bg-blue-500 text-white font-bold mt-2 rounded-lg p-2 cursor-pointer"
+          onClick={toastMessage}
+        />
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
         />
         <div className="text-sm tracking-wide text-blue-500 mt-3">
           <a href="https://platform.openai.com/account/api-keys">
