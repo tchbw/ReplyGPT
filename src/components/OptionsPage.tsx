@@ -20,8 +20,7 @@ export default function OptionsPage(props: OptionsPageProps) {
       console.log("Value is set");
       // console.log("Value is set to " + openaiKey);
     });
-    e.preventDefault();
-    return false;
+    e.preventDefault(); // Stops the page from refreshing (default action of form submit)
   }
 
   return (

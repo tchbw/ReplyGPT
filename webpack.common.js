@@ -8,6 +8,7 @@ module.exports = (env, options) => {
       index: "./src/index.ts",
       twitter: "./src/twitter.ts",
       options: "./src/options.tsx",
+      background: "./src/background.ts",
     },
     output: {
       filename: "[name].js",
