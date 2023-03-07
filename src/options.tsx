@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
-import DefaultPopup from "src/components/DefaultPopup";
+import OptionsPage from "src/components/OptionsPage";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-root.render(<DefaultPopup />);
+root.render(<OptionsPage />);

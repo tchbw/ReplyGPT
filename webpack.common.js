@@ -7,7 +7,7 @@ module.exports = (env, options) => {
     entry: {
       index: "./src/index.ts",
       twitter: "./src/twitter.ts",
-      popup: "./src/popup.tsx",
+      options: "./src/options.tsx",
     },
     output: {
       filename: "[name].js",
@@ -33,8 +33,8 @@ module.exports = (env, options) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        chunks: ["popup"],
-        filename: "./popup.html",
+        chunks: ["options"],
+        filename: "./options.html",
         templateContent: `
           <html>
             <body>
@@ -55,6 +55,14 @@ module.exports = (env, options) => {
         patterns: [
           {
             from: "manifest.json",
+            to: path.resolve(__dirname, "dist"),
+          },
+        ],
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: "src/popup.html",
             to: path.resolve(__dirname, "dist"),
           },
         ],
