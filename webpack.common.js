@@ -5,7 +5,6 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = (env, options) => {
   return {
     entry: {
-      index: "./src/index.ts",
       twitter: "./src/twitter.ts",
       options: "./src/options.tsx",
       background: "./src/background.ts",
@@ -47,7 +46,7 @@ module.exports = (env, options) => {
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: "assets/icons/icon-*.png",
+            from: "assets/icons/icon*.png",
             to: path.resolve(__dirname, "dist"),
           },
         ],

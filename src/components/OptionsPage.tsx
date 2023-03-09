@@ -25,11 +25,11 @@ export default function OptionsPage(props: OptionsPageProps) {
     e.preventDefault(); // Stops the page from refreshing (default action of form submit)
   }
 
-  const toastMessage = () => toast.success("Submitted!");
+  const toastMessage = () => toast.success("Saved. Time to TWEET!");
 
   return (
-    <div className="bg-blue-200 flex flex-col min-w-[500px] min-h-[300px] h-screen w-screen justify-center items-center">
-      <div className="text-center text-2xl uppercase mb-7 font-bold text-blue-400">
+    <div className="bg-sky-50 flex flex-col min-w-[500px] min-h-[300px] h-screen w-screen justify-center items-center">
+      <div className="text-center text-2xl uppercase mb-5 font-bold text-sky-500">
         OpenAI API Key:
       </div>
       <form onSubmit={handleSubmit} className="w-3/4">
@@ -42,8 +42,8 @@ export default function OptionsPage(props: OptionsPageProps) {
         />
         <input
           type="submit"
-          value="Submit"
-          className="block w-full h-[30px] bg-blue-500 text-white font-bold mt-2 rounded-lg p-2 cursor-pointer"
+          value="Save API key"
+          className="block w-full bg-sky-500 text-white font-bold mt-2 rounded-lg p-2 cursor-pointer"
           onClick={toastMessage}
         />
         <ToastContainer
@@ -58,9 +58,17 @@ export default function OptionsPage(props: OptionsPageProps) {
           pauseOnHover
           theme="light"
         />
-        <div className="text-sm tracking-wide text-blue-500 mt-3">
-          <a href="https://platform.openai.com/account/api-keys">
-            Get your API key
+        <div className="text-sm tracking-wide text-sky-500 mt-3 underline decoration-sky-500">
+          <a
+            target="_blank"
+            href="https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key"
+          >
+            How do I get my API key?
+          </a>
+        </div>
+        <div className="text-sm tracking-wide text-slate-400 text-center hover:text-slate-500 mt-10 ">
+          <a target="_blank" href="https://www.buymeacoffee.com/degrom">
+            Getting good tweets? Buy us a coffee!
           </a>
         </div>
       </form>

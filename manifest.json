@@ -1,16 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "TwitterGPT",
+  "name": "GPTweet: Twitter replies with ChatGPT",
+  "version": "0.0.0.1",
+  "description": "Are you networking on Twitter? Let ChatGPT draft your Tweet replies for you!",
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
   "action" : {
     "default_popup": "options.html"
-  },
-  "version": "1.0",
-  "description": "Add the reading time to Chrome Extension documentation articles",
-  "icons": {
-    "16": "assets/icons/icon-12.png",
-    "32": "assets/icons/icon-12.png",
-    "48": "assets/icons/icon-12.png",
-    "128": "assets/icons/icon-12.png"
   },
   "permissions": [
     "storage"
@@ -20,13 +20,6 @@
   },
   "options_page": "options.html",
   "content_scripts": [
-    {
-      "js": ["index.js"],
-      "matches": [
-        "https://developer.chrome.com/docs/extensions/*",
-        "https://developer.chrome.com/docs/webstore/*"
-      ]
-    },
     {
       "js": ["twitter.js"],
       "matches": [
