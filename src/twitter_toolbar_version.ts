@@ -105,6 +105,26 @@ function handleOpenAIError(e: any) {
   }).showToast();
 }
 
+function getFeaturedTweet() {
+  const tweetModal = document.querySelector('[aria-labelledby="modal-header"]');
+  if (tweetModal) {
+    const tweet =
+      tweetModal.querySelector('[data-testid="tweetText"]') ||
+      tweetModal.querySelector('[data-testid="tweet"]');
+    return tweet;
+  } else {
+    const tweets = Array.from(
+      document.querySelectorAll('[data-testid="tweetText"]')
+    );
+    // Main tweet is larger text size
+    // This is so hacky but whatever
+    const largeTweet = tweets.find(
+      (t) => parseInt(getComputedStyle(t).fontSize) >= 17
+    );
+    return largeTweet;
+  }
+}
+
 (async () => {
   const observer = new MutationObserver((mutations) => {
     if (document.querySelector('[data-testid="toolBar"]')) {
@@ -124,6 +144,12 @@ function handleOpenAIError(e: any) {
     '<svg class=\'inline-block ml-2 mb-1\' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="transform: ;msFilter:;"><path d="M21 10.975V8a2 2 0 0 0-2-2h-6V4.688c.305-.274.5-.668.5-1.11a1.5 1.5 0 0 0-3 0c0 .442.195.836.5 1.11V6H5a2 2 0 0 0-2 2v2.998l-.072.005A.999.999 0 0 0 2 12v2a1 1 0 0 0 1 1v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a1 1 0 0 0 1-1v-1.938a1.004 1.004 0 0 0-.072-.455c-.202-.488-.635-.605-.928-.632zM7 12c0-1.104.672-2 1.5-2s1.5.896 1.5 2-.672 2-1.5 2S7 13.104 7 12zm8.998 6c-1.001-.003-7.997 0-7.998 0v-2s7.001-.002 8.002 0l-.004 2zm-.498-4c-.828 0-1.5-.896-1.5-2s.672-2 1.5-2 1.5.896 1.5 2-.672 2-1.5 2z"></path></svg>';
 
   function setupButtons() {
+    const tweet = getFeaturedTweet();
+    // This stops the write tweet button from having the ai buttons
+    if (!tweet) {
+      $(".ai_button_wrapper").remove();
+      return;
+    }
     const buttonlessTweets = $('[data-testid="toolBar"]')
       .parent()
       .not(":has(.ai_button_wrapper)");
@@ -150,20 +176,9 @@ function handleOpenAIError(e: any) {
       $self.data("active", true);
       $self.find(".loader").first().attr("data-active", "true");
 
-      const tweets = Array.from(
-        document.querySelectorAll('[data-testid="tweetText"]')
-      );
-      // Main tweet is larger text size
-      const maxTextSizeTweet = tweets.reduce(function (prev, current) {
-        return parseInt(getComputedStyle(current).fontSize) >=
-          parseInt(getComputedStyle(prev).fontSize)
-          ? current
-          : prev;
-      });
+      const tweetText = tweet ? $(tweet).text() : "";
 
-      const tweetText = $(maxTextSizeTweet).text();
       const tone = $self.data("tone");
-      console.log("THOM", tweetText, tone);
       try {
         const tweetReply = await getChatGPTResponse(
           tweetText,
@@ -175,9 +190,22 @@ function handleOpenAIError(e: any) {
         // const tweetReply = "deez nuts";
 
         if (tweetReply) {
+          const i = document.querySelector('[data-testid="tweetTextarea_0"]'),
+            r = new DataTransfer();
+          r.setData("text/plain", tweetReply),
+            null == i ||
+              i.dispatchEvent(
+                new ClipboardEvent("paste", {
+                  dataType: "text/plain",
+                  data: tweetReply,
+                  bubbles: !0,
+                  clipboardData: r,
+                  cancelable: !0,
+                })
+              );
           await navigator.clipboard.writeText(tweetReply || "um");
           Toastify({
-            text: "Copied your reply to clipboard",
+            text: "Added reply",
 
             duration: 3000,
           }).showToast();
