@@ -21,7 +21,7 @@
   "options_page": "options.html",
   "content_scripts": [
     {
-      "js": ["twitter.js"],
+      "js": ["twitter_toolbar_version.js"],
       "matches": [
         "https://twitter.com/*/status/*",
         "https://twitter.com/*"

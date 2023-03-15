@@ -6,6 +6,7 @@ module.exports = (env, options) => {
   return {
     entry: {
       twitter: "./src/twitter.ts",
+      twitter_toolbar_version: "./src/twitter_toolbar_version.ts",
       options: "./src/options.tsx",
       background: "./src/background.ts",
     },

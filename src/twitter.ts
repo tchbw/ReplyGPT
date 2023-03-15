@@ -34,7 +34,11 @@ import { Configuration, OpenAIApi } from "openai";
     //   );
     //text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600 dark:from-purple-400 dark:to-pink-500 fill-gray-500 dark:fill-gray-500
     buttonlessTweets.append(
-      `<div class='ai_button_wrapper flex justify-start'><button type='button' class='ai_button mt-4 rounded-lg py-2 px-3 border-2 border-gray-400 dark:border-gray-400 text-gray-500 disabled:cursor-progress fill-gray-500'>${loaderSvg}<span>Copy AI reply</span>${botSvg}</button></div>`
+      `<div class='ai_button_wrapper flex justify-start text-gray-500 items-center mt-4 gap-2'>
+           <div>AI replies:</div>
+           <button type='button' class='ai_button ai_excited text-sm rounded-lg py-1 px-2 border-2 border-gray-400 dark:border-gray-400 disabled:cursor-progress fill-gray-500'>${loaderSvg}<span>Copy AI reply</span>${botSvg}</button>
+           <button type='button' class='ai_button ai_ text-sm rounded-lg py-1 px-2 border-2 border-gray-400 dark:border-gray-400 disabled:cursor-progress fill-gray-500'>${loaderSvg}<span>Copy AI reply</span>${botSvg}</button>
+      </div>`
     );
     //TODO catch open ai errors - bad api key and others and toast in response
     // $(".ai_button")
