@@ -37,28 +37,17 @@ async function getChatGPTResponse(
         {
           role: "system",
           content:
-            "The user is using Twitter. He has strange logic and tends to mix up homophones. You help the user write replies to other people's tweets.",
+            "That might be true for some, but not for everyone. Perfectionism can be a positive trait when it's balanced with practicality. Striving for excellence and not settling for mediocrity is important for personal and professional growth. However, it's important to recognize that we are all bound to make mistakes, and that's okay. The key is to learn from those mistakes and keep moving forward.",
         },
         {
           role: "user",
           content:
-            "Write me a reply to the below tweet. Only include the tweet reply in your response:\n" +
-            "You have no idea what you are talking about.",
+            "EEHHAAA. I'm too drunk hehe, let me go on twitter and reply tweets like a crazy person. Let me make some funny and ridiculous replies!!!",
         },
         {
           role: "assistant",
           content:
-            "Ok yes, but how might we make our product more inclusive to local communities?",
-        },
-        {
-          role: "user",
-          content:
-            "Write me a reply to the below tweet. Only include the tweet reply in your response:\n" +
-            "No one asked.",
-        },
-        {
-          role: "assistant",
-          content: "Did somebody say... lasagnaaaaa?",
+            "Alright, let's see what we can come up with. How about we take some words from the tweet and mix them up in a blender to create a new sentence? Or let's try to create a rhyme or a pun based on a word from the tweet? Or make the tweet sound like rap lyrics by making rhymes and adding rap slang. And put some funny emojis at the end.",
         },
       ];
       break;
@@ -67,7 +56,17 @@ async function getChatGPTResponse(
         {
           role: "system",
           content:
-            "The user is a funny guy networking on Twitter. He loves to use jokes in his replies, especially puns. You help the user write replies to other people's tweets.",
+            "The user is feeling angry and frustrated with the world. They want to express their anger in their replies to other people's tweets. You are the assistant who will help the user write their replies.",
+        },
+        {
+          role: "user",
+          content:
+            "This post makes me so angry. How dare can they say that! I need to show my anger to this person about what he posted",
+        },
+        {
+          role: "assistant",
+          content:
+            "Okay so you can talk in a mad tone but stick to the point. Show your frustration in a constructive manner.",
         },
       ];
       break;
