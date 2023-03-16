@@ -30,6 +30,11 @@ async function getChatGPTResponse(
           content:
             "The user is a funny guy networking on Twitter. He loves to use jokes in his replies. You help the user write replies to other people's tweets.",
         },
+        {
+          role: "user",
+          content:
+            "Give a reply to this tweet post that's really funny that will make everyone laugh.",
+        },
       ];
       break;
     case "drunk":
@@ -42,12 +47,13 @@ async function getChatGPTResponse(
         {
           role: "user",
           content:
-            "EEHHAAA. I'm too drunk hehe, let me go on twitter and reply tweets like a crazy person. Let me make some funny and ridiculous replies!!!",
+            "Reply to this tweet that makes no sense by making absurd and funny jokes and put some funny emojis too.\n" +
+            "Why do seagulls fly over the sea?",
         },
+        { role: "assistant", content: "Why?" },
         {
-          role: "assistant",
-          content:
-            "Alright, let's see what we can come up with. How about we take some words from the tweet and mix them up in a blender to create a new sentence? Or let's try to create a rhyme or a pun based on a word from the tweet? Or make the tweet sound like rap lyrics by making rhymes and adding rap slang. And put some funny emojis at the end.",
+          role: "user",
+          content: "Because if they flew over the bay they'd be Bagel.",
         },
       ];
       break;
@@ -56,17 +62,12 @@ async function getChatGPTResponse(
         {
           role: "system",
           content:
-            "The user is feeling angry and frustrated with the world. They want to express their anger in their replies to other people's tweets. You are the assistant who will help the user write their replies.",
+            "The user is feeling angry and frustrated with the world. They want to express their anger in their replies to other people's tweets.",
         },
         {
           role: "user",
           content:
-            "This post makes me so angry. How dare can they say that! I need to show my anger to this person about what he posted",
-        },
-        {
-          role: "assistant",
-          content:
-            "Okay so you can talk in a mad tone but stick to the point. Show your frustration in a constructive manner.",
+            "Reply to the tweet with frustration and anger. Show that what he said can make people really mad and upset. Be a bitch!",
         },
       ];
       break;
