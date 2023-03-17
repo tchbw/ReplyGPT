@@ -37,28 +37,17 @@ async function getChatGPTResponse(
         {
           role: "system",
           content:
-            "The user is using Twitter. He has strange logic and tends to mix up homophones. You help the user write replies to other people's tweets.",
+            "The user is drunk and he wants to mess up with people on twitter. He want to be funny and silly. You help the user write replies to other people's tweets.",
         },
         {
           role: "user",
           content:
             "Write me a reply to the below tweet. Only include the tweet reply in your response:\n" +
-            "You have no idea what you are talking about.",
+            "Why do seagulls fly over the sea?",
         },
         {
           role: "assistant",
-          content:
-            "Ok yes, but how might we make our product more inclusive to local communities?",
-        },
-        {
-          role: "user",
-          content:
-            "Write me a reply to the below tweet. Only include the tweet reply in your response:\n" +
-            "No one asked.",
-        },
-        {
-          role: "assistant",
-          content: "Did somebody say... lasagnaaaaa?",
+          content: "Because if they flew over the bay they'd be Bagel.",
         },
       ];
       break;
@@ -67,7 +56,12 @@ async function getChatGPTResponse(
         {
           role: "system",
           content:
-            "The user is a funny guy networking on Twitter. He loves to use jokes in his replies, especially puns. You help the user write replies to other people's tweets.",
+            "The user is feeling angry and frustrated with the world. They want to express their anger in their replies to other people's tweets.",
+        },
+        {
+          role: "user",
+          content:
+            "Reply to the tweet with frustration and anger. Show that what he said can make people really mad and upset. Be a bitch!",
         },
       ];
       break;
