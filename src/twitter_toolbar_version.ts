@@ -42,7 +42,7 @@ async function getChatGPTResponse(
         {
           role: "system",
           content:
-            "That might be true for some, but not for everyone. Perfectionism can be a positive trait when it's balanced with practicality. Striving for excellence and not settling for mediocrity is important for personal and professional growth. However, it's important to recognize that we are all bound to make mistakes, and that's okay. The key is to learn from those mistakes and keep moving forward.",
+            "The user is drunk and he wants to mess up with people on twitter. He want to be funny and silly. You help the user write replies to other people's tweets.",
         },
         {
           role: "user",
@@ -50,9 +50,8 @@ async function getChatGPTResponse(
             "Reply to this tweet that makes no sense by making absurd and funny jokes and put some funny emojis too.\n" +
             "Why do seagulls fly over the sea?",
         },
-        { role: "assistant", content: "Why?" },
         {
-          role: "user",
+          role: "assistant",
           content: "Because if they flew over the bay they'd be Bagel.",
         },
       ];
