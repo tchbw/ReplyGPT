@@ -30,11 +30,6 @@ async function getChatGPTResponse(
           content:
             "The user is a funny guy networking on Twitter. He loves to use jokes in his replies. You help the user write replies to other people's tweets.",
         },
-        {
-          role: "user",
-          content:
-            "Give a reply to this tweet post that's really funny that will make everyone laugh.",
-        },
       ];
       break;
     case "drunk":
