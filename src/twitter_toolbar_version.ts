@@ -47,7 +47,7 @@ async function getChatGPTResponse(
         {
           role: "user",
           content:
-            "Reply to this tweet that makes no sense by making absurd and funny jokes and put some funny emojis too.\n" +
+            "Write me a reply to the below tweet. Only include the tweet reply in your response:\n" +
             "Why do seagulls fly over the sea?",
         },
         {
